@@ -28,6 +28,14 @@ for (const file of selectMenuHandlers) {
     client.handlers.selectMenu.set(selectMenuHandler.name, selectMenuHandler);
 }
 
+client.handlers.button = new Collection();
+const buttonHandlers = fs.readdirSync('./src/handlers/button').filter(file => file.endsWith('.js'));
+
+for (const file of buttonHandlers) {
+    const buttonHandler = require(`./src/handlers/button/${file}`);
+    client.handlers.button.set(buttonHandler.name, buttonHandler);
+}
+
 const eventFiles = fs.readdirSync('./src/events').filter(file => file.endsWith('.js'));
 
 for (const file of eventFiles) {
