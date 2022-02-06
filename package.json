@@ -1,0 +1,21 @@
+{
+  "name": "linked-discord-bot",
+  "author": "André Weller <info@lost.design> (https://lost.design/)",
+  "version": "1.0.0",
+  "description": "This is a bot for the https://github.com/lostdesign/linked discord community.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node .",
+    "update:slash-commands": "node deploy-commands.js"
+  },
+  "license": "GPLv3",
+  "dependencies": {
+    "@discordjs/builders": "^0.12.0",
+    "@discordjs/rest": "^0.3.0",
+    "discord-api-types": "^0.26.1",
+    "discord.js": "^13.6.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.8.0"
+  }
+}
