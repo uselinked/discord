@@ -1,37 +1,17 @@
-const {SlashCommandBuilder} = require('@discordjs/builders')
-const {MessageEmbed} = require('discord.js')
-const fetch = require('node-fetch')
+const { SlashCommandBuilder } = require('@discordjs/builders')
+const { MessageEmbed } = require('discord.js')
+const { sumDownloads, getRepoStats, getLatestReleaseStats } = require('../../lib/github')
 const { DateTime } = require('luxon')
 
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('linked')
-        .setDescription('Returns information & stats about the project.'),
+        .setDescription('Returns information & stats about the project 🧠'),
 
     async execute(interaction) {
-        const {
-            stargazers_count,
-            open_issues_count,
-            updated_at
-        } = await fetch('https://api.github.com/repos/lostdesign/linked')
-            .then(response => response.json())
-            .then(data => data)
+        const { stargazers_count, open_issues_count, updated_at } = await getRepoStats()
+        const { assets, name, url} = await getLatestReleaseStats()
 
-        const {
-            assets,
-            name,
-            url
-        } = await fetch('https://api.github.com/repos/lostdesign/linked/releases/latest')
-            .then(response => response.json())
-            .then(data => data)
-
-        const sumDownloads = (array) => {
-            const sum = (accumulator, curr) => accumulator + curr
-            return array
-                //.filter(asset => asset.browser_download_url.includes(extension))
-                .map(asset => asset.download_count)
-                .reduce(sum)
-        }
 
         await interaction.reply({
             embeds: [

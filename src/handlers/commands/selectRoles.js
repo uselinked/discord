@@ -7,7 +7,7 @@ const {collect} = require("collect.js");
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('roles')
-        .setDescription('Select your server roles'),
+        .setDescription('Select your server roles 👨‍💻'),
 
     async execute(interaction) {
         const row = new MessageActionRow()
