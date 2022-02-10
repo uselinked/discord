@@ -1,9 +1,11 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
+const {MessageEmbed} = require("discord.js");
+const {Client} = require("../../../index")
 
 module.exports = {
      data: new SlashCommandBuilder()
           .setName("ping")
-          .setDescription("Replies with Pong 🏓"),
+          .setDescription("Replies with embed with latency, API latency and uptime"),
 
      async execute(interaction) {
           let uptime = Math.floor(Client.uptime / 1000 / 60 / 60);

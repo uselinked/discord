@@ -48,3 +48,6 @@ for (const file of eventFiles) {
 }
 
 client.login(token);
+
+// To make ping work
+module.exports.Client = Client;
