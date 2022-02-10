@@ -12,7 +12,6 @@ module.exports = {
         const { stargazers_count, open_issues_count, updated_at } = await getRepoStats()
         const { assets, name, url} = await getLatestReleaseStats()
 
-
         await interaction.reply({
             embeds: [
                 new MessageEmbed()
