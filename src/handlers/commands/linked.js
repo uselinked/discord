@@ -56,7 +56,7 @@ module.exports = {
                         },
                         { name: '\u200B', value: '\u200B' },
                         { name: 'Latest Release', value: `[v${name}](${url})`, inline: true },
-                        { name: 'Downloads', value: `⬇️ ${sumDownloads(assets)}`, inline: true },
+                        { name: 'Current release downloads', value: `⬇️ ${sumDownloads(assets)}`, inline: true },
                     ])
             ]
         })
