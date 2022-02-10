@@ -1,8 +1,6 @@
 const { SlashCommandBuilder } = require('@discordjs/builders')
 const { MessageEmbed } = require('discord.js')
 const ms = require('pretty-ms')
-const {DateTime} = require("luxon")
-const fetch = require("node-fetch")
 
 module.exports = {
     data: new SlashCommandBuilder()
