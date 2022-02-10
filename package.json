@@ -14,7 +14,10 @@
     "@discordjs/rest": "^0.3.0",
     "collect.js": "^4.31.3",
     "discord-api-types": "^0.26.1",
-    "discord.js": "^13.6.0"
+    "discord.js": "^13.6.0",
+    "luxon": "^2.3.0",
+    "node-fetch": "^2.6.7",
+    "pretty-ms": "^7.0.1"
   },
   "devDependencies": {
     "eslint": "^8.8.0"
