@@ -55,6 +55,7 @@ module.exports = {
 
         const roleInfoEmbed = new MessageEmbed()
             .setTitle('Manage your roles')
+            .setColor('#FF005C')
             .addFields([
                 { name: 'Adding roles', value: 'You can select as many roles as you want, once done click anywhere else.' },
                 {
