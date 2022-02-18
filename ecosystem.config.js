@@ -23,12 +23,11 @@ module.exports = {
 		production: {
 			user: process.env.SERVER_USER,
 			host: process.env.SERVER_IP,
-			key: process.env.KEY_PATH,
 			ref: 'origin/main',
 			repo: 'https://github.com/lostdesign/linked-discord-bot.git',
 			path: '/home/discord/linked-discord-bot',
 			'post-deploy':
-                'cp ~/.env ~/linked-discord-bot/.env && npm run install && npm run update:slash-commands && pm2 reload ecosystem.config.js --env production && pm2 save',
+                'cp ~/.env ~/linked-discord-bot/source/.env && npm run install && npm run update:slash-commands && pm2 reload ecosystem.config.js --env production && pm2 save',
 			env: {
 				NODE_ENV: 'production',
 				TOKEN: process.env.TOKEN,
