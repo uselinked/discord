@@ -6,7 +6,13 @@
   "main": "index.js",
   "scripts": {
     "start": "node .",
-    "update:slash-commands": "node deploy-commands.js"
+    "update:slash-commands": "node deploy-commands.js",
+    "pm2-restart": "pm2 startOrRestart ecosystem.config.js",
+    "pm2-deploy": "pm2 deploy ecosystem.config.js production",
+    "pm2-logs": "pm2 deploy ecosystem.config.js production exec \"pm2 logs\"",
+    "pm2-ls": "pm2 deploy ecosystem.config.js production exec \"pm2 ls\"",
+    "pm2-flush": "pm2 deploy ecosystem.config.js production exec \"pm2 flush\"",
+    "pm2-init": "pm2 deploy ecosystem.config.js production setup"
   },
   "license": "GPLv3",
   "dependencies": {
@@ -15,8 +21,10 @@
     "collect.js": "^4.31.3",
     "discord-api-types": "^0.26.1",
     "discord.js": "^13.6.0",
+    "dotenv": "^16.0.0",
     "luxon": "^2.3.0",
     "node-fetch": "^2.6.7",
+    "pm2": "^5.2.0",
     "pretty-ms": "^7.0.1"
   },
   "devDependencies": {
