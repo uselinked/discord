@@ -9,11 +9,11 @@ module.exports = {
 		.setDescription('Get information about a release ℹ️')
 		.addStringOption(option =>
 			option.setName('version')
-				.setDescription('Try for example: 1.0.0')
+				.setDescription('Try for example: 1.0.0 or latest')
 				.setRequired(true),
 		),
 
-	async execute(interaction, client) {
+	async execute(interaction) {
 		const { value: versionInput } = interaction.options.get('version');
 		const release = await getReleaseByTag(versionInput);
 

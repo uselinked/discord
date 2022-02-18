@@ -5,7 +5,12 @@ require('dotenv').config();
 
 
 const getReleaseByTag = async (tag) => {
-	if (!tag.match(semverRegex)) return false;
+	if (tag !== 'latest' || !tag.match(semverRegex)) return false;
+
+	if (tag === 'latest') {
+		const tags = await getAllTagNames();
+		tag = tags[0];
+	}
 
 	return await fetch(baseUrl + '/releases/tags/v' + tag)
 		.then(response => response.json())
