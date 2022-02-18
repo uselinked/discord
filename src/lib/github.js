@@ -3,14 +3,13 @@ const semverRegex = /^([0-9]+)\.([0-9]+)\.([0-9]+)(?:-([0-9A-Za-z-]+(?:\.[0-9A-Z
 const baseUrl = 'https://api.github.com/repos/lostdesign/linked';
 require('dotenv').config();
 
-
 const getReleaseByTag = async (tag) => {
-	if (tag !== 'latest' || !tag.match(semverRegex)) return false;
-
 	if (tag === 'latest') {
 		const tags = await getAllTagNames();
-		tag = tags[0];
+		tag = tags[0].substring(1);
 	}
+
+	if (!tag.match(semverRegex)) return false;
 
 	return await fetch(baseUrl + '/releases/tags/v' + tag)
 		.then(response => response.json())
