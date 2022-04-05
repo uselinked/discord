@@ -12,7 +12,7 @@ module.exports = {
 			embeds: [
 				new MessageEmbed()
 					.setTitle('Latency')
-					.setDescription('The repository can be found at [lostdesign/linked-discord-bot](https://github.com/lostdesign/linked-discord-bot), feel free to suggest new features or make a PR')
+					.setDescription('The repository can be found at [uselinked/discord](https://github.com/uselinked/discord), feel free to suggest new features or make a PR')
 					.setColor('#FF005C')
 					.addFields([
 						{
