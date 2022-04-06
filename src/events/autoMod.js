@@ -4,22 +4,22 @@ class CacheManager {
      constructor(val) {
           this.cache = String(val).split(/[\n\r]/);
           this.cache = this.cache.filter((url) => url.length > 0);
+          // change it to map as TOT said
+          this.cache = new Map(this.cache.map((url) => [url, true]));
      }
-     hasNot(val) {
-          for (const url of this.cache)
-               if (new RegExp(url).test(val)) return false;
-          return true;
+     has(val) {
+          return this.cache.has(val); // use Map.prototype.has function
      }
 }
 
-let cache;
+const cache = new CacheManager(fs.readFileSync("data/scam-urls.txt"));
 
 module.exports = {
      name: "messageCreate",
      once: false,
      execute(msg) {
-          if (typeof cache === "undefined")
-               cache = new CacheManager(fs.readFileSync("data/scam-urls.txt"));
-          if (!cache.hasNot(msg.content)) msg.delete();
+          if (!cache.has(msg.content)) { // brackets for lost
+               msg.delete();
+          }
      },
 };
