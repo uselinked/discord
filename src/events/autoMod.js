@@ -18,7 +18,7 @@ module.exports = {
      name: "messageCreate",
      once: false,
      execute(msg) {
-          if (!cache.has(msg.content)) { // brackets for lost
+          if (cache.has(msg.content)) { // brackets for lost
                msg.delete();
           }
      },
