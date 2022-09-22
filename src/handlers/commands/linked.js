@@ -22,7 +22,7 @@ module.exports = {
 						{ name: 'Website', value: '[uselinked.com](https://uselinked.com)', inline: true },
 						{ name: 'Twitter', value: '[@uselinked](https://twitter.com/uselinked)', inline: true },
 						{
-							name: 'Respository',
+							name: 'Repository',
 							value: '[lostdesign/linked](https://github.com/lostdesign/linked)',
 							inline: true,
 						},
